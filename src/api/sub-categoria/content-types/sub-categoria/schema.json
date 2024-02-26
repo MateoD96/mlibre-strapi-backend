@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_categorias",
+  "info": {
+    "singularName": "sub-categoria",
+    "pluralName": "sub-categorias",
+    "displayName": "subCategoria",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria",
+      "inversedBy": "sub_categorias"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "subsub_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subsub-categorie.subsub-categorie",
+      "mappedBy": "sub_categoria"
+    }
+  }
+}

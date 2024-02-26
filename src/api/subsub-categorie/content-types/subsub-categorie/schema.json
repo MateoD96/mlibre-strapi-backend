@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subsub_categories",
+  "info": {
+    "singularName": "subsub-categorie",
+    "pluralName": "subsub-categories",
+    "displayName": "subsubCategorie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "url_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sub_categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-categoria.sub-categoria",
+      "inversedBy": "subsub_categories"
+    },
+    "productos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::producto.producto",
+      "mappedBy": "subsub_categorie"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "filtros": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::filtro.filtro",
+      "mappedBy": "subsub_categories"
+    }
+  }
+}

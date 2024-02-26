@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_filtros",
+  "info": {
+    "singularName": "sub-filtro",
+    "pluralName": "sub-filtros",
+    "displayName": "SubFiltro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "filtro": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::filtro.filtro",
+      "inversedBy": "sub_filtros"
+    },
+    "productos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::producto.producto",
+      "mappedBy": "sub_filtros"
+    },
+    "slug": {
+      "type": "uid"
+    }
+  }
+}

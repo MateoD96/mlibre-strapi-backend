@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "filtros",
+  "info": {
+    "singularName": "filtro",
+    "pluralName": "filtros",
+    "displayName": "Filtros",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sub_filtros": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-filtro.sub-filtro",
+      "mappedBy": "filtro"
+    },
+    "subsub_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subsub-categorie.subsub-categorie",
+      "inversedBy": "filtros"
+    }
+  }
+}
